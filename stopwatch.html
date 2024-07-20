@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+        .main{
+            height: 230px;
+            width: 400px;
+            margin: auto;
+            margin-top: 50px;
+            border-radius: 10px;
+            border: 1px solid black;
+            text-align: center;
+        }
+        h3{
+            text-align: center;
+        }
+        button{
+            color:blue;
+            background-color: white;
+            border: 0.5px solid grey;
+            padding: 5px;
+            margin: 15px ;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        #btn1{
+                background-color: blue;
+                color: white;
+        }
+        p{
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class=" main">
+        <h3>STOPWATCH</h3>
+        <hr style="margin-top: 10px;">
+        <p id ="stopwatch">00:00</p>
+        <hr style="margin-top: 60px;">
+        <button id ="btn1" onclick="start()"> START</button>
+        <button id ="btn2" onclick="reset()"> RESET</button>
+    </div>
+</body>
+</html>
+
+<script>
+    let key ="start"
+    let btn = document.getElementById("btn1")
+    let resetbtn = document.getElementById("btn2")
+    let counter = document.getElementById("stopwatch")
+    function start()  {
+        if (key === "start"){
+            btn.innerText = "STOP"
+            key = "stop"
+            intervalId = setInterval(updateStopwatch, 1000);
+        }
+        else{
+            btn.innerText ="START"
+            key = "start"
+            clearInterval(intervalId);
+        }       
+    }   
+    
+ function updateStopwatch() {
+    let [minutes, seconds] = counter.innerText.split(":").map(Number);
+    seconds++;
+
+    if (seconds === 60) {
+        minutes++;
+        seconds = 0;
+    }
+
+    counter.innerText = `${(minutes < 10 ? "0" : "") + minutes}:${(seconds < 10 ? "0" : "") + seconds}`;
+}
+    function reset(){
+        clearInterval(intervalId);
+        counter.innerText = "00:00"
+        btn.innerText = "START";
+        key = "start";
+    }
+
+    
+</script>

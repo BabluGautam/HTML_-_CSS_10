@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="stopwatch">
+        <div class="time-display">
+            00 : 00 : 00 : 00
+        </div>
+    </div>
+        <div id="button">
+            <button id="start" class="btn" style="--clr:red">START</button>
+            <button id="pause" class="btn" style="--clr:green">PAUSE</button>
+            <button id="reset" class="btn" style="--clr:blue">RESET</button>
+        </div>
+</body>
+</html>
+
+<script>
+  let timeDisplay = document.querySelector(".time-display");
+let start = document.getElementById("start");
+let pause = document.getElementById("pause");
+let reset = document.getElementById("reset");
+
+// initialize time variables
+let msec = 0;
+let sec = 0;
+let min = 0;
+let hour = 0;
+
+// empty timer ID
+let timerId = null;
+
+// start timer function
+start.addEventListener("click", function() {
+    if (timerId !== null) {// when timerId is not equal to zero 
+        clearInterval(timerId); // stop clear interval
+    }
+    timerId = setInterval(startTimer, 10); // Change interval to 10 milliseconds
+});
+
+// pause timer function
+pause.addEventListener("click", function() {
+    clearInterval(timerId);  // pause the interval
+});
+
+// reset timer function
+reset.addEventListener("click", function() {
+    clearInterval(timerId);
+    timeDisplay.innerText = `00 : 00 : 00 : 00`;
+    msec = sec = min = hour = 0;
+});
+
+// timer increment function
+function startTimer() {
+    msec++;
+    if (msec == 100) { // Adjust condition to 100 for milliseconds
+        sec++;
+        msec = 0;
+    }
+    if (sec == 60) {
+        min++;
+        sec = 0;
+    }
+    if (min == 60) {
+        hour++;
+        min = 0;
+    }
+
+    // format time strings change the numbers into strings//
+    let msecString = msec < 10 ? `0${msec}` : msec; // when msec less then 10 then zero ko msec me assign
+    // kr do : ye colon impm hai 
+    let secString = sec < 10 ? `0${sec}` : sec;
+    let minString = min < 10 ? `0${min}` : min;
+    let hourString = hour < 10 ? `0${hour}` : hour;
+
+    // update time display
+    timeDisplay.innerHTML = `${hourString} : ${minString} : ${secString} : ${msecString}`;
+}
+
+</script>
+ 
