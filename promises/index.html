@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promises</title>
+</head>
+<body>
+    <h1>promises</h1>
+</body>
+</html>
+<script src="script.js">
+// let mypromise=new Promise(function(resolve,reject){
+// resolve("yes i am done")
+// })
+// console.log(mypromise)
+
+
+let networkreq=false;
+
+// let mypromise= new Promise(function(resolve,reject){
+//     setTimeout(function(){
+//       if(networkreq){
+//         resolve("u will acces the data")
+//       }
+//       else{
+//         reject("u will not acces the data")
+//       }
+
+//     },3000)
+// })
+// console.log(mypromise)
+
+// mypromise 
+// .then(function(resolve){
+//     console.log(resolve)
+// })
+// .catch(function(reject){
+//     console.log(reject)
+// })
+
+function firstTask() {
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      console.log("First task done.")
+      resolve()
+    }, 1000)
+  })
+}
+
+function secondTask() {
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      console.log("Second task done.")
+      resolve()
+    }, 1000)
+  })
+}
+
+function thirdTask() {
+  return new Promise(function (resolve) {
+    setTimeout(function () {
+      console.log("Third task done.")
+      resolve()
+    }, 1000)
+  })
+}
+
+firstTask()
+  .then(secondTask)
+  .then(thirdTask)
+  .then(function () {
+    console.log("All tasks are completed.")
+  })
+</script>

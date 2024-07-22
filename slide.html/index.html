@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>slider</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <div class="slider">
+    <button id="prev" onclick="pre()">
+        <span class="material-symbols-outlined">
+            chevron_left
+            </span>
+    </button>
+    <img scr ="" style="height: 250px; width:100%;">
+    <button id ="next" onclick="next()">
+        <span class="material-symbols-outlined">
+            chevron_right
+            </span>
+    </button></div>
+</body>
+</html>
+<script>
+    let imgArr = [
+        "https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/23fcdcf22de91b63.jpg?q=20",
+        "https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/b8e07ff39439d998.jpg?q=20",
+        "https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/6ee258c0b83e9ced.jpg?q=20",
+        "https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/23fcdcf22de91b63.jpg?q=20",
+        "https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/b1eb1bda72fe4374.jpg?q=20",
+        "https://masai-website-images.s3.ap-south-1.amazonaws.com/banner_h_1_3d43d26bd0.webp",
+        "https://media.licdn.com/dms/image/D4D16AQEDVUx7RSnpjw/profile-displaybackgroundimage-shrink_350_1400/0/1692014341676?e=1706745600&v=beta&t=7CR7S8_QkRUdScT0wacRc2MHOsqsVQpPWnd4GhA9oUM",
+        "https://media.licdn.com/dms/image/D5616AQGov-h2C-xhsg/profile-displaybackgroundimage-shrink_350_1400/0/1691935098695?e=1706745600&v=beta&t=Nr_bnAXF0Ul1EQn5HB2TEpghUAkLiPt8x02OJlPAmoQ",
+        "https://media.licdn.com/dms/image/D4D16AQH6psxrrLAjTA/profile-displaybackgroundimage-shrink_350_1400/0/1691944385725?e=1706745600&v=beta&t=N5yanl9t9ZtegBXuhmP1Fr2G7Gjp6CBfj_KDlK4QD6M",
+        "https://media.licdn.com/dms/image/D4D16AQG8EZ6TubO_Sg/profile-displaybackgroundimage-shrink_350_1400/0/1689441347117?e=1706745600&v=beta&t=eBPoTZMrFGUxjucO5GP9OTKxlr8tduKwSHtfNa2PkCk",
+        "https://media.licdn.com/dms/image/C5616AQH96_MKhWQfZg/profile-displaybackgroundimage-shrink_350_1400/0/1645194743361?e=1706745600&v=beta&t=H9x0CedzH1Z5pA_K0GRB2jFBQtCwUSA-WQTWAQ_JW1M",
+        "https://media.licdn.com/dms/image/C4E16AQGAhbS8UBxdmg/profile-displaybackgroundimage-shrink_350_1400/0/1645018678245?e=1706745600&v=beta&t=oVFLFyt73aY4X_Cni9K0zrcwlFaCYQ9_Wh3n5Jv_wkU",
+        "https://media.licdn.com/dms/image/C5616AQED_la3mO9gTg/profile-displaybackgroundimage-shrink_350_1400/0/1630232124210?e=1706745600&v=beta&t=2giV-UPZreghV-Qoi1HCZJRrz6oDb1Eruegr_YaLnRs",
+        "https://media.licdn.com/dms/image/C4D16AQHvvWAdRr6XJQ/profile-displaybackgroundimage-shrink_350_1400/0/1656432712935?e=1706745600&v=beta&t=KSgT5YMeSGogvcwhk1DRVtau39esLpmvIbnBNPdHKo4",
+        "https://media.licdn.com/dms/image/C5616AQGmFHxmBcLSfg/profile-displaybackgroundimage-shrink_350_1400/0/1640361447270?e=1706745600&v=beta&t=7a6Hi1AfMUQZNE7JvvyXyOL8VDCKdWVCp0Sl-VDzwvc",
+        "https://images.unsplash.com/photo-1593720213428-28a5b9e94613?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2ViJTIwZGV2ZWxvcG1lbnR8ZW58MHx8MHx8fDA%3D",
+        "https://images.unsplash.com/photo-1565106430482-8f6e74349ca1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHdlYiUyMGRldmVsb3BtZW50fGVufDB8fDB8fHww",
+        "https://plus.unsplash.com/premium_photo-1685086785054-d047cdc0e525?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHdlYiUyMGRldmVsb3BtZW50fGVufDB8fDB8fHww",
+        "https://images.unsplash.com/photo-1605379399642-870262d3d051?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHdlYiUyMGRldmVsb3BtZW50fGVufDB8fDB8fHww",
+        "https://media.istockphoto.com/id/1358013032/photo/web-development-concept.webp?b=1&s=170667a&w=0&k=20&c=aAR7goX4e7jDiUfx1SNA7lD04WldUv6okpifv80xGcw=",
+    ]
+    currimg = 0
+    let image = document.querySelector("img");
+    image.setAttribute("src",imgArr[currimg])
+
+    brek = setInterval( ()=>{
+        currimg++
+        if(currimg >= imgArr.length ){
+            currimg = 0
+        }
+        image.setAttribute("src",imgArr[currimg])
+    },2000)
+    function pre(){
+        currimg--
+        if(currimg < 0 ){
+            currimg = imgArr.length 
+        }
+        image.setAttribute("src",imgArr[currimg])
+        clearInterval(brek)
+    }
+    function next(){
+        currimg++
+        if(currimg >= imgArr.length ){
+            currimg = 0
+        }
+        image.setAttribute("src",imgArr[currimg])
+        clearInterval(brek)
+    }
+</script> 
+
+
