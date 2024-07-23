@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .load{
+        height: 700px;
+        width: 400px;
+        margin: auto;
+    }
+</style>
+<body>
+    <div class="load">
+        <img style="height: 100%;"; width="100%"; src="https://cdn.vectorstock.com/i/1000v/49/90/loading-icon-on-black-vector-24544990.jpgA">
+    </div>
+</body>
+</html>
+<script>
+    
+let process = prompt("Enter the status of payment (success or fail)")
+let img = document.querySelector("img")
+let mypromise = new Promise( function ( resolve, reject) {
+setTimeout(function() {
+if (process === "success"){
+    resolve("Payment success");
+}
+else if (process === "fail"){
+    reject ("Payment failed")}
+},2000)
+})
+
+
+
+mypromise.then(function(value) {
+    console.log("value:", value);
+    img.src = "https://content.phonepe.com/ppcms/media/filer_public_thumbnails/filer_public/98/a2/98a299a0-6eeb-4aef-841d-844bf6772f88/success_-_p2p_-_000001.png__200x400_q85_subsampling-2.png";
+});
+mypromise.catch(function(value) {
+    console.log("value:", value);
+    img.src = "https://pbs.twimg.com/media/DO1cPX0VwAEtZjk?format=jpg&name=4096x4096";
+
+});
+
+</script>
