@@ -1,0 +1,104 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch-1</title>
+</head>
+<body>
+    <div id="container"></div>
+</body>
+</html>
+<script >
+    
+function displayData(data){ 
+    console.log(data)
+    data.forEach((el) => {
+        // const div=document.createElement("div")
+        // div.textContent=ele.data
+        const p=document.createElement("p")
+        p.textContent=el.name;
+        const h3=document.createElement("h3")
+        h3.textContent=el.year
+        div.append(p,h3)
+       
+        
+    });
+}
+
+fetch('https://reqres.in/api/unknown') // This is the URL you're "calling".
+  .then(response => response.json())  // Convert the response to a format we can easily work with.
+  .then((data) => displayData(data))
+    // Do something with the data
+    
+  
+  .catch((error) => console.log(error))
+    // If something goes wrong, this block will run.
+   
+
+//   "data"= [
+//     {
+//       "id": 1,
+//       "name": "cerulean",
+//       "year": 2000,
+//       "color": "#98B2D1",
+//       "pantone_value": "15-4020"
+//     },
+// ]
+</script> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch-1</title>
+</head>
+<style>
+    #container{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+    }
+</style>
+<body>
+    <div id="container"></div>
+</body>
+</html>
+<script>
+   const container=  document.getElementById('container')
+function displayData(data){ 
+    console.log(data);
+    data.forEach((el) => {
+        const div=document.createElement("div")
+        div.textContent=el.data
+        div.style.border= "3px,solid,black"
+        div.style.margin="10px"
+        // div.style.height="100px"
+        //  div.style.width="50px"
+        const p = document.createElement("p");
+        p.textContent = el.name;
+        p.style.textAlign="center"
+        p.style.background="red"
+         p.style.fontSize="50px"
+        const h3 = document.createElement("h3");
+        h3.textContent = el.year;
+          h3.style.textAlign="center"
+          const h4=document.createElement("h4")
+          h4.innerText=el.color
+           h4.style.textAlign="center"
+           const h2=document.createElement("h2")
+           h2.innerText=el.pantone_value;
+            h2.style.textAlign="center"
+             h2.style.background="green"
+
+      div .append(p, h3,h4,h2);
+      container.append(div)
+    });
+}
+
+fetch('https://reqres.in/api/unknown') // This is the URL you're "calling".
+  .then(response => response.json())  // Convert the response to a format we can easily work with.
+  .then((responseData) => displayData(responseData.data))
+  .catch((error) => console.log(error)); // If something goes wrong, this block will run.
+</script>
