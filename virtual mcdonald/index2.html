@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>es6</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+//     function fetchUserData(url) {
+//     fetch(url) // We start by calling the fetch function, which returns a Promise.
+//         .then(response => { // We use .then() to handle the successful response.
+//             return response.json(); // If the response was successful, we return the parsed JSON data using response.json(), which itself returns a Promise.
+//         })
+//         .then(data => { // We chain another .then() to handle the parsed JSON data.
+//             console.log(data);
+//         })
+//         .catch(error => { // Finally, we use .catch() to handle any errors that might occur during the fetch or the parsing process.
+//             console.error("bablu are coming", error);
+//         });
+// }
+
+// fetchUserData('https://api.example.com/users'); // 
+// async function fetchUserData(url){
+//     try {
+//         let res=await fetch(url)// fetch ka response ka wait
+//         let data=await res.json();
+//         console.log("your task is done")
+//     } catch (error) {
+//         console.log("fetching the error",error)
+//     }
+// }
+// fetchUserData("https://api.example.com/users");
+
+
+// function init() {
+//   console.log("hello") // This is function declaration, valid and prints hello
+// }
+// init()
+
+ // Hoisted ; hence init is undefined initially
+
+var init = () => {
+  console.log("hello")
+} // Uncaught TypeError: init is not a function
+init()
+</script>
