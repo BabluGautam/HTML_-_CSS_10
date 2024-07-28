@@ -43,8 +43,20 @@
 
  // Hoisted ; hence init is undefined initially
 
-var init = () => {
-  console.log("hello")
-} // Uncaught TypeError: init is not a function
-init()
+// var init = () => {
+//   console.log("hello")
+// } // Uncaught TypeError: init is not a function
+// init()
+
+
+// let init = () => {
+//   console.log("hello")
+// } // Uncaught ReferenceError: Cannot access 'init' before initialization
+// init()
+
+
+// const init = () => {
+//   console.log("hello")
+// } // Uncaught ReferenceError: Cannot access 'init' before initialization
+// init()
 </script>

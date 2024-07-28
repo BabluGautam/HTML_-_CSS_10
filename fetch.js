@@ -102,4 +102,56 @@
 
 // Anomoyous functions
 
+
+// import { somevariable,bar,temp } from "./index.js";
+
+// console.log(somevariable);
+
+// console.log(bar());
+
+// console.log(temp());
+
+
+// const root = document.getElementById('root')
+
+// root.innerHTML = <h1>Hey, I am batman</h1>
+ // not working as expected. what if one has multiple lines of HTML//
+
+//  const root = document.getElementById('root')
+
+// root.innerHTML = `
+//   <h1>Hey, I am batman</h1>
+//   <h2>I am here to save gotham</h2>
+//   <p>I am gonna catch joker</p>
+// `
   
+
+// import { navbar } from "./example1/navbar.js"
+
+// console.log(navbar(2,3))
+
+// import{add} from  "./util.js"
+
+// console.log(add(5,5))
+
+
+// import{subtract} from  "./util.js"
+
+// console.log(subtract(5,5))
+
+// function add(a, b) {
+//     return a + b;
+//   }
+  
+//   function subtract(a, b) {
+//     return a - b;
+//   }
+  
+//   export { add,subtract } from"./util.js"
+
+//   console.log(add(0,0))
+//   console.log(subtract(5,5))
+
+import mul from  './mul.js'
+
+console.log(mul(2,2))
