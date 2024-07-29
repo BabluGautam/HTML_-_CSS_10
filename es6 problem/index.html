@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  let lower = (arr) => {
+    let upp = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let low = "abcdefghijklmnopqrstuvwxyz";
+    let res = [];
+    for (let i = 0; i < arr.length; i++) {
+      let str = "";
+      for (let j = 0; j < arr[i].length; j++) 
+      {
+        for (let k = 0; k < upp.length; k++) 
+        {
+          if (arr[i][j] === upp[k]) 
+          {
+            str += low[k];
+          } else if (arr[i][j] === low[k]) 
+          {
+            str += low[k];
+          }
+        }
+      }
+      res.push(str);
+    }
+    return res;
+  };
+  let ans = ["MAANN", "SA", "I", "SCH", "OOL"];
+
+  console.log(lower(ans));
+</script>
